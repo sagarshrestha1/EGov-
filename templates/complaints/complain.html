@@ -1,0 +1,63 @@
+{% load static %}
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>e-gov</title>
+
+</head>
+<body>
+    <header>
+        <div class="float">
+        <a href="https://www.facebook.com/hellomoha/"><i class="fa-brands fa-facebook" style="color:#3b5998;"></i></a>
+        <a href="https://twitter.com/moha_nepal"><i class="fa-brands fa-twitter" style="color:#1C9CEA;"></i></a>
+        <a href="google.maps.com"><i class="fa-solid fa-location-dot" style="color: #d60000;"></i></a>
+        </div>
+    </header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="{% static 'images/logo.png' %}" alt="" height="70" />Ministry of Home Affairs
+        </div>
+        <div class="login">
+          <!-- <img src="hello.png" alt="" class="img"> -->
+          <div id="time-date-container">
+            <p id="time"></p>
+            <p id="date"></p>
+          </div>
+          <img src="{% static 'images/nepalflag.png' %}" alt="" class="img" />
+        </div>
+      </div>
+    </nav>
+    <section>
+    <div class="box">
+    <h1>Ministry of Home Affairs</h1><br>
+    <p><strong>Address:  </strong>Singhdurbar, Kathmandu</p>
+    <p><strong>Phone: </strong>+977-1-4211208, +977-1-4211214 1112</p>
+    <p><strong>Fax: </strong>+977-1-4211257, +977-1-4211286</p>
+    <p><strong>Facebook: </strong> https://www.facebook.com/hellomoha/</p>
+    <p><strong>Twitter: </strong> https://twitter.com/moha_nepal</p>
+    </div>
+    <div class="complaint-box">
+        <h2>Submit a Complaint</h2>
+        <form method="POST" action="{% url 'complaint' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    </section>
+</body>
+
+<script src="{% static 'js/script.js' %}"></script>
+</html>
+{% else %}
+ <meta http-equiv="refresh" content="0; url={% url 'login' %}" />
+{% endif %}
+</html>

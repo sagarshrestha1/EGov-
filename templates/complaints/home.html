@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Complain-Nep</title>
+</head>
+
+<body>
+  <header>
+    <div class="float">
+      <a href="https://www.facebook.com/hellomoha/"><i class="fa-brands fa-facebook" style="color: #3b5998"></i></a>
+      <a href="https://twitter.com/moha_nepal"><i class="fa-brands fa-twitter" style="color: #1c9cea"></i></a>
+      <a href="google.maps.com"><i class="fa-solid fa-location-dot" style="color: #d60000"></i></a>
+    </div>
+  </header>
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="" height="70" />Ministry of Home Affairs
+      </div>
+      <div class="login">
+        <!-- <img src="hello.png" alt="" class="img"> -->
+        <div id="time-date-container">
+          <p id="time"></p>
+          <p id="date"></p>
+        </div>
+        <img src="{% static 'images/nepalflag.png' %}" alt="" class="img" />
+      </div>
+
+    </div>
+  </nav>
+  <div class="buttonshoni">
+    <a href="{% url 'login' %}"><button class="front">Login</button></a>
+    <a href="{% url 'signup' %}"><button class="front">Signup</button></a>
+    <a href="{% url 'complaint' %}"><button class="front">Register Complain</button></a>
+  </div>
+  <div class="bodylogin">
+    <div class="logincontent">
+      <h1>परिचय</h1>
+      <p>
+        नेपालमा २००७ सालको राजनैतिक परिवर्तन पश्चात् देशको आन्तरिक कार्यको
+        व्यवस्थापन हेर्ने गरी वि.सं. २००८ सालमा गृह मन्त्रालयको स्थापना भयो।
+        वि.सं. २०१७ सालको परिवर्तन पछि गृह मन्त्रालयको नाम परिवर्तन गरी गृह
+        पञ्चायत मन्त्रालय बनाईयो र नेपाललाई १४ अञ्चल ७५ जिल्लामा विभाजन गरी
+        अंचलाधीश र प्रमुख जिल्ला अधिकारीको व्यवस्था भयो। स्थानीय प्रशासन ऐन,
+        २०२८ प्रारम्भ भएपछि अंचलाधीश र प्र.जि.अ.को काम कर्तव्य र अधिकार कानुनी
+        रुपमा व्यवस्थित गरियो। वि.सं. २०३७ सालमा गृह मन्त्रालयबाट पञ्चायत
+        सम्वन्धी काम छुट्याई सो सम्वन्धी काम हेर्ने छुट्टै स्थानीय विकास
+        मन्त्रालयको गठन भएपछि गृह मन्त्रालयको मूख्य कार्यभार शान्ति सुव्यवस्था
+        र स्थानीय प्रशासन भयो। नेपालको संविधान २०७२ जारी भै ७७ जिल्ला कायम
+        भएबमोजिम मन्त्रालय अन्तर्गत ७७ जिल्ला प्रशासन कार्यालयहरु, ७७ ईलाका
+        प्रशासन कार्यालयहरु र ७ सिमा प्रशासन कार्यालयहरु रहेका छन् ।
+        <br />
+        <br />
+        ”मुलुकमा शान्ति सुव्यवस्था र सुरक्षा कायम गरी जनताको जिउ धन र
+        स्वतन्त्रताको संरक्षण गर्नु” गृह प्रशासनको मुख्य उद्देश्य हो। गृह
+        प्रशासनलाई सबल र सक्षम बनाई जनतामा सुरक्षाको अनुभूति दिलाउन र सेवा
+        प्रवाहलाई प्रभावकारी बनाइ सुशासन कायम गर्न हाल गृह मन्त्रालय मातहत
+        राष्ट्रिय परिचयपत्र तथा पञ्जिकरण विभाग, अध्यागमन विभाग,कारागार
+        व्यवस्थापन विभाग,राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन
+        प्राधिकरण, जिल्ला प्रशासन कार्यालय , इलाका प्रशासन कार्यालय, सीमा
+        प्रशासन कार्यालय तथा सुरक्षा निकायका रुपमा नेपाल प्रहरी, सशस्त्र
+        प्रहरी वल, नेपाल लगायतका निकायहरु केन्द्रदेखि स्थानीय तहसम्म क्रियाशील
+        रहेका छन्।
+      </p>
+      <h3>दृष्टिकोण</h3>
+
+      नेपालको प्रचलित संविधान तथा कानुनद्वारा प्रत्याभूत नागरिक स्वतन्त्रता,
+      विधिको शासन, मानव अधिकार लगायत लोकतान्त्रिक मूल्य र मान्यतालाई सम्मान
+      गर्ने गरी कार्य गर्नु गृह प्रशासनको दृष्टिकोण हो।
+
+      <h3>लक्ष्य</h3>
+
+      जनताको माग र आधारभूत आवश्यकता अनुरूप गृह प्रशासनलाई सञ्चालन गरी देशमा
+      भरपर्दो शान्ति सुरक्षा प्रदान गर्नु गृह प्रशासनको लक्ष्य रहेको छ।
+
+      <h3>उद्देश्य</h3>
+
+      शान्ति सुव्यवस्था र सुरक्षा कायम गरी जनताको जिउ, धन र स्वतन्त्रताको
+      संरक्षण गर्नु गृह मन्त्रालयको मूलभूत उद्देश्य हो।
+    </div>
+    <div class="tables">
+      <h1>Active Complaints</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Type of Complaint</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for complaint in active_complaints %}
+          <tr>
+            <td>{{ complaint.type_of_complaint }}</td>
+            <td>{{ complaint.description }}</td>
+            <td>{{ complaint.created_at }}</td>
+            {% if complaint.image %}
+            <td><img src="{{ complaint.image.url }}" height="100" width="100"></td>
+            {% endif %}
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4">No complaints found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h1>Closed Complaints</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Type of Complaint</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for complaint in closed_complaints %}
+          <tr>
+            <td>{{ complaint.type_of_complaint }}</td>
+            <td>{{ complaint.description }}</td>
+            <td>{{ complaint.created_at }}</td>
+            {% if complaint.image %}
+            <td><img src="{{ complaint.image.url }}" height="100" width="100"></td>
+            {% endif %}
+
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4">No complaints found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+<script src="{% static 'js/script.js' %}"></script>
+
+</html>

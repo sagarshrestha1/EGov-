@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Complain-Nep</title>
+  </head>
+<body>
+    <header>
+        <div class="float">
+        <a href="https://www.facebook.com/hellomoha/"><i class="fa-brands fa-facebook" style="color:#3b5998;"></i></a>
+        <a href="https://twitter.com/moha_nepal"><i class="fa-brands fa-twitter" style="color:#1C9CEA;"></i></a>
+        <a href="google.maps.com"><i class="fa-solid fa-location-dot" style="color: #d60000;"></i></a>
+        </div>
+    </header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="{% static 'images/logo.png' %}" alt="" height="70" />Ministry of Home Affairs
+        </div>
+        <div class="login">
+          <!-- <img src="hello.png" alt="" class="img"> -->
+          <div id="time-date-container">
+            <p id="time"></p>
+            <p id="date"></p>
+          </div>
+          <img src="{% static 'images/nepalflag.png' %}" alt="" class="img" />
+        </div>
+      </div>
+    </nav>
+    <div class="center">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                {{form.username}}
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                {{form.password}}
+            </div>
+            <button  class="submit" type="submit">Login</button>
+            
+        </form>
+    </div>
+    </div>
+</body>
+<script src="{% static 'js/script.js' %}"></script>
+</html>

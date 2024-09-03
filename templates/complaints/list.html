@@ -1,0 +1,56 @@
+<h1>Active Complaints</h1>
+<table>
+    <thead>
+      <tr>
+        <th>Type of Complaint</th>
+        <th>Description</th>
+        <th>Created At</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for complaint in active_complaints %}
+        <tr>
+          <td>{{ complaint.type_of_complaint }}</td>
+          <td>{{ complaint.description }}</td>
+          <td>{{ complaint.created_at }}</td>
+          {% if complaint.image %}
+          <td><img src="{{ complaint.image.url }}" height="100" width="100"></td>
+          {% endif %}
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No complaints found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<h1>Closed Complaints</h1>
+<table>
+    <thead>
+      <tr>
+        <th>Type of Complaint</th>
+        <th>Description</th>
+        <th>Created At</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for complaint in closed_complaints %}
+        <tr>
+          <td>{{ complaint.type_of_complaint }}</td>
+          <td>{{ complaint.description }}</td>
+          <td>{{ complaint.created_at }}</td>
+          {% if complaint.image %}
+          <td><img src="{{ complaint.image.url }}" height="100" width="100"></td>
+          {% endif %}
+
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No complaints found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
